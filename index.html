@@ -3,69 +3,177 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Agency - Empowering SMEs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>AI Agency - Futuristic Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; }
-    header { background: linear-gradient(135deg, #4F46E5, #3B82F6); color: white; padding: 4rem 2rem; text-align: center; }
-    header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-    header p { font-size: 1.125rem; margin-bottom: 2rem; }
-    header .cta { display: inline-block; background: white; color: #4F46E5; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; text-decoration: none; transition: background 0.3s; }
-    header .cta:hover { background: #e0e7ff; }
-
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 4rem 2rem; }
-    .feature-card { background: #fff; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 2rem; text-align: center; }
-    .feature-card h3 { margin-bottom: 1rem; font-size: 1.25rem; color: #4F46E5; }
-    .feature-card p { font-size: 1rem; color: #555; }
-
-    .testimonial { background: #f9fafb; padding: 4rem 2rem; text-align: center; }
-    .testimonial blockquote { font-style: italic; font-size: 1.125rem; margin-bottom: 1.5rem; }
-    .testimonial cite { font-weight: 600; color: #4F46E5; }
-
-    footer { background: #111827; color: #d1d5db; padding: 2rem; text-align: center; }
-    footer a { color: #818cf8; text-decoration: none; margin: 0 0.5rem; }
-    footer a:hover { text-decoration: underline; }
-
+    :root {
+      --primary: #00FFFF;
+      --secondary: #1A1A2E;
+      --accent: #FF00FF;
+      --text-light: #E0E0E0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--secondary);
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+    /* Animated Gradient Background */
+    .animated-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 200%; height: 200%;
+      background: linear-gradient(45deg, #0F2027, #203A43, #2C5364, #1A1A2E);
+      background-size: 600% 600%;
+      animation: gradientShift 15s ease infinite;
+      z-index: -1;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    header {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 0.1rem;
+      color: var(--primary);
+      text-shadow: 0 0 8px var(--primary);
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      color: var(--text-light);
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      font-family: 'Orbitron', sans-serif;
+      text-transform: uppercase;
+      border: 2px solid var(--primary);
+      border-radius: 2rem;
+      color: var(--primary);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s ease;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--primary);
+      transition: transform 0.3s ease;
+      transform: skewX(-20deg) translateX(0);
+      z-index: -1;
+    }
+    .btn:hover {
+      color: var(--secondary);
+    }
+    .btn:hover::before {
+      transform: skewX(-20deg) translateX(200%);
+    }
+    /* Features with Glassmorphism */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+    .feature-card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      text-shadow: 0 0 4px var(--accent);
+    }
+    .feature-card p {
+      font-size: 1rem;
+      color: var(--text-light);
+    }
+    /* Scroll Down Indicator */
+    .scroll-down {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      animation: bounce 2s infinite;
+      color: var(--primary);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 10px); }
+    }
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
     @media (min-width: 768px) {
-      header h1 { font-size: 3.5rem; }
+      header h1 { font-size: 4rem; }
       header p { font-size: 1.25rem; }
     }
   </style>
 </head>
 <body>
-
+  <div class="animated-bg"></div>
   <header>
-    <h1>Empowering SMEs with AI</h1>
-    <p>Harness the power of artificial intelligence to streamline operations, boost growth, and stay ahead of the curve.</p>
-    <a href="#contact" class="cta">Get Started</a>
+    <h1>AI Agency</h1>
+    <p>Next-Gen AI Solutions for SMEs</p>
+    <a href="#features" class="btn">Explore</a>
+    <div class="scroll-down">&#8595;</div>
   </header>
 
-  <section class="features">
+  <section id="features" class="features">
     <div class="feature-card">
-      <h3>Custom AI Solutions</h3>
-      <p>Tailored AI tools designed to solve your unique business challenges and drive real impact.</p>
+      <h3>Adaptive Intelligence</h3>
+      <p>AI engines that learn and adapt to your business needs in real time.</p>
     </div>
     <div class="feature-card">
-      <h3>Data-Driven Insights</h3>
-      <p>Leverage analytics and predictive modeling to make informed decisions with confidence.</p>
+      <h3>Quantum Analytics</h3>
+      <p>Predictive models supercharged by quantum-inspired algorithms.</p>
     </div>
     <div class="feature-card">
-      <h3>Seamless Integration</h3>
-      <p>Integrate AI smoothly into your existing workflows without disruption.</p>
+      <h3>Seamless Automation</h3>
+      <p>Automate repetitive tasks with precision and speed.</p>
     </div>
-  </section>
-
-  <section class="testimonial">
-    <blockquote>"Working with this AI agency transformed how we operate. We've seen efficiency gains of over 40%!"</blockquote>
-    <cite>- Jane Smith, CEO of Acme Corp</cite>
   </section>
 
   <footer id="contact">
-    <p>Ready to transform your business?</p>
-    <p><a href="mailto:hello@aiagency.com">hello@aiagency.com</a> | +44 20 7946 0958</p>
+    <p>Get in touch: <a href="mailto:hello@aiagency.com">hello@aiagency.com</a> | +44 20 7946 0958</p>
     <p>&copy; 2025 AI Agency. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
